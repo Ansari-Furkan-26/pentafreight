@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  color: #1B1F24;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #E85A14;
+  color: #fff;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #F4F5F7; }
+::-webkit-scrollbar-thumb { background: #C7CDD6; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #E85A14; }
+
+.container-page {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-page { padding-inline: 2rem; }
+}
+
+@media (min-width: 1280px) {
+  .container-page { padding-inline: 2.5rem; }
+}
+
+@keyframes pf-marquee {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+@keyframes pf-marquee-reverse {
+  0%   { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: pf-marquee 32s linear infinite;
+  will-change: transform;
+}
+.marquee-track-r {
+  display: flex;
+  width: max-content;
+  animation: pf-marquee-reverse 36s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover,
+.marquee-track-r:hover {
+  animation-play-state: paused;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* Pill label (used across sections) */
+.eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: #475563;
+  border: 1px solid #C7CDD6;
+  border-radius: 9999px;
+  padding: 0.35rem 0.85rem;
+  background: #fff;
+}
+.eyebrow-pill::before {
+  content: '';
+  display: inline-block;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 9999px;
+  background: #1B1F24;
+}
+
+/* Subtle worldmap pattern for slate sections */
+.bg-pattern-waves {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04) 0, transparent 35%),
+    radial-gradient(circle at 80% 60%, rgba(255,255,255,0.04) 0, transparent 35%);
+}
